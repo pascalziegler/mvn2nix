@@ -5,8 +5,8 @@ let
       (_: super: rec {
         gh-md-toc-source = super.fetchurl {
           url =
-            "https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc";
-          sha256 = "1253n0qw3xgikl7gcdicg3vmc3wzz6122bmhmffj1irrachq89fi";
+            "https://raw.githubusercontent.com/ekalinin/github-markdown-toc/0.8.0/gh-md-toc";
+          sha256 = "sha256-xgPQJECj0a+ea5pZoCVk0ThbF0XXyUcs3sGcVNtXJvw=";
         };
         gh-md-toc = super.writeScriptBin "gh-md-toc" ''
           ${super.runtimeShell} ${gh-md-toc-source} "$@"

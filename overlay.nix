@@ -1,13 +1,13 @@
-self: super: {
-  jdk = super.jdk11_headless;
+final: prev: {
+  jdk = prev.jdk11_headless;
 
-  mvn2nix = self.callPackage ./derivation.nix { };
+  mvn2nix = final.callPackage ./derivation.nix { };
 
-  mvn2nix-bootstrap = self.callPackage ./derivation.nix { bootstrap = true; };
+  mvn2nix-bootstrap = final.callPackage ./derivation.nix { bootstrap = true; };
 
   buildMavenRepository =
-    (self.callPackage ./maven.nix { }).buildMavenRepository;
+    (final.callPackage ./maven.nix { }).buildMavenRepository;
 
   buildMavenRepositoryFromLockFile =
-    (self.callPackage ./maven.nix { }).buildMavenRepositoryFromLockFile;
+    (final.callPackage ./maven.nix { }).buildMavenRepositoryFromLockFile;
 }
